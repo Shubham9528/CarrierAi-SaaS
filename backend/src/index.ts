@@ -8,7 +8,7 @@ import cors from "cors";
 import Razorpay from "razorpay";
 import axios from "axios";
 
-const url = `https://ai-career-backend-q7xn.onrender.com`;
+const url = process.env.SERVER_URL!;
 const interval = 30000;
 
 function reloadWebsite() {
