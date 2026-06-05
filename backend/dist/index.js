@@ -27,9 +27,10 @@ export const instance = new Razorpay({
     key_secret: process.env.Razorpay_Secret,
 });
 const app = express();
-const allowedOrigins = process.env.ORIGIN
-    ? process.env.ORIGIN.split(",").map(origin => origin.trim())
-    : [];
+const allowedOrigins = [
+    "https://carrier-ai-saas-frontend.vercel.app",
+    "http://localhost:5173"
+];
 console.log(allowedOrigins);
 app.use(cors({
     origin: allowedOrigins,
