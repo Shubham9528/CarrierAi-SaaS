@@ -7,7 +7,7 @@ import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
 import axios from "axios";
-
+dotenv.config();
 const url = process.env.SERVER_URL!;
 const interval = 30000;
 
@@ -26,7 +26,7 @@ const interval = 30000;
 
 // setInterval(reloadWebsite, interval);
 
-dotenv.config();
+
 
 connectDB().then(() => console.log("DB connected"));
 
@@ -41,6 +41,8 @@ const allowedOrigins = process.env.ORIGIN
   ? process.env.ORIGIN.split(",").map(origin => origin.trim())
   : [];
 
+
+  console.log(allowedOrigins);
 app.use(cors({
   origin: allowedOrigins,
   credentials: true

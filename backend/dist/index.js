@@ -6,6 +6,7 @@ import aiRoutes from "./routes/ai.js";
 import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
+dotenv.config();
 const url = process.env.SERVER_URL;
 const interval = 30000;
 // Function to reload the website(for keeping the server alive on render.com)
@@ -20,7 +21,6 @@ const interval = 30000;
 //     });
 // }
 // setInterval(reloadWebsite, interval);
-dotenv.config();
 connectDB().then(() => console.log("DB connected"));
 export const instance = new Razorpay({
     key_id: process.env.Razorpay_Key,
@@ -30,6 +30,7 @@ const app = express();
 const allowedOrigins = process.env.ORIGIN
     ? process.env.ORIGIN.split(",").map(origin => origin.trim())
     : [];
+console.log(allowedOrigins);
 app.use(cors({
     origin: allowedOrigins,
     credentials: true
