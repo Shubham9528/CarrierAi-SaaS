@@ -8,18 +8,25 @@ import cors from "cors";
 import Razorpay from "razorpay";
 import axios from "axios";
 const url = process.env.SERVER_URL;
-const interval = 30000;
-function reloadWebsite() {
-    axios
-        .get(url)
-        .then((response) => {
-        console.log("website reloded");
-    })
-        .catch((error) => {
-        console.error(`Error : ${error.message}`);
-    });
-}
-setInterval(reloadWebsite, interval);
+
+// Function to reload the website(for keeping the server alive on render.com)
+// const interval = 30000;
+
+// function reloadWebsite() {
+//     axios
+//         .get(url)
+//         .then((response) => {
+//         console.log("website reloded");
+//     })
+//         .catch((error) => {
+//         console.error(`Error : ${error.message}`);
+//     });
+// }
+// setInterval(reloadWebsite, interval);
+// Function to reload the website(for keeping the server alive on render.com)
+
+
+
 dotenv.config();
 connectDB().then(() => console.log("DB connected"));
 export const instance = new Razorpay({

@@ -11,6 +11,8 @@ import axios from "axios";
 const url = process.env.SERVER_URL!;
 const interval = 30000;
 
+
+// Function to reload the website(for keeping the server alive on render.com)
 function reloadWebsite() {
   axios
     .get(url)
