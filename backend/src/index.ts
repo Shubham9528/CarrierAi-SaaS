@@ -53,6 +53,30 @@ app.use("/api/user", userRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/payment", paymentRoutes);
 
+
+app.get("/", (req, res) => {
+  res.send(`
+    <html>
+    <head>
+      <style>
+        body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #0a0a0a; font-family: sans-serif; color: #fff; text-align: center; }
+        h1 { font-size: 2rem; } span { color: #6366f1; }
+        p { color: #555; margin-top: 0.5rem; }
+        .dot { display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; margin-right: 6px; animation: p 1.5s infinite; }
+        @keyframes p { 0%,100%{opacity:1} 50%{opacity:0.2} }
+      </style>
+    </head>
+    <body>
+      <div>
+        <p><span class="dot"></span>API ONLINE</p>
+        <h1>AI <span>Carrier</span> SaaS</h1>
+        <p>Backend is up and running.</p>
+      </div>
+    </body>
+    </html>
+  `);
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
