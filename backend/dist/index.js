@@ -6,27 +6,20 @@ import aiRoutes from "./routes/ai.js";
 import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
-import axios from "axios";
 const url = process.env.SERVER_URL;
-
+const interval = 30000;
 // Function to reload the website(for keeping the server alive on render.com)
-// const interval = 30000;
-
 // function reloadWebsite() {
-//     axios
-//         .get(url)
-//         .then((response) => {
-//         console.log("website reloded");
+//   axios
+//     .get(url)
+//     .then((response) => {
+//       console.log("website reloded");
 //     })
-//         .catch((error) => {
-//         console.error(`Error : ${error.message}`);
+//     .catch((error) => {
+//       console.error(`Error : ${error.message}`);
 //     });
 // }
 // setInterval(reloadWebsite, interval);
-// Function to reload the website(for keeping the server alive on render.com)
-
-
-
 dotenv.config();
 connectDB().then(() => console.log("DB connected"));
 export const instance = new Razorpay({
@@ -34,7 +27,13 @@ export const instance = new Razorpay({
     key_secret: process.env.Razorpay_Secret,
 });
 const app = express();
-app.use(cors());
+const allowedOrigins = process.env.ORIGIN
+    ? process.env.ORIGIN.split(",").map(origin => origin.trim())
+    : [];
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use("/api/user", userRoutes);
