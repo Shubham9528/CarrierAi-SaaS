@@ -85,7 +85,7 @@ export const jobMatcher = TryCatch(async (req, res) => {
         });
     }
     const response = await ai.models.generateContent({
-        model: "gemini-1.5-flash",
+        model: "gemini-2.5-flash",
         contents: [{ role: "user", parts }],
     });
     const rawText = response.text?.replace(/```json|```/g, "").trim();
@@ -193,7 +193,7 @@ export const buildResume = TryCatch(async (req, res) => {
         });
     }
     const response = await ai.models.generateContent({
-        model: "gemini-1.5-flash",
+        model: "gemini-2.5-flash",
         contents: [{ role: "user", parts }],
     });
     const rawText = response.text?.replace(/```json|```/g, "").trim();
