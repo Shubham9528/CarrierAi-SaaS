@@ -6,22 +6,22 @@ import aiRoutes from "./routes/ai.js";
 import paymentRoutes from "./routes/payment.js";
 import cors from "cors";
 import Razorpay from "razorpay";
-import axios from "axios";
 dotenv.config();
 const url = process.env.SERVER_URL;
 const interval = 30000;
-// Function to reload the website(for keeping the server alive on render.com)
-function reloadWebsite() {
-    axios
-        .get(url)
-        .then((response) => {
-        console.log("website reloded");
-    })
-        .catch((error) => {
-        console.error(`Error : ${error.message}`);
-    });
-}
-setInterval(reloadWebsite, interval);
+// // Function to reload the website(for keeping the server alive on render.com)
+// function reloadWebsite() {
+//   axios
+//     .get(url)
+//     .then((response) => {
+//       console.log("website reloded");
+//     })
+//     .catch((error) => {
+//       console.error(`Error : ${error.message}`);
+//     });
+// }
+// setInterval(reloadWebsite, interval);
+// // Function to reload the website(for keeping the server alive on render.com)
 connectDB().then(() => console.log("DB connected"));
 export const instance = new Razorpay({
     key_id: process.env.Razorpay_Key,

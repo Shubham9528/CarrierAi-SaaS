@@ -12,20 +12,20 @@ const url = process.env.SERVER_URL!;
 const interval = 30000;
 
 
-// Function to reload the website(for keeping the server alive on render.com)
-function reloadWebsite() {
-  axios
-    .get(url)
-    .then((response) => {
-      console.log("website reloded");
-    })
-    .catch((error) => {
-      console.error(`Error : ${error.message}`);
-    });
-}
+// // Function to reload the website(for keeping the server alive on render.com)
+// function reloadWebsite() {
+//   axios
+//     .get(url)
+//     .then((response) => {
+//       console.log("website reloded");
+//     })
+//     .catch((error) => {
+//       console.error(`Error : ${error.message}`);
+//     });
+// }
 
-setInterval(reloadWebsite, interval);
-
+// setInterval(reloadWebsite, interval);
+// // Function to reload the website(for keeping the server alive on render.com)
 
 
 connectDB().then(() => console.log("DB connected"));

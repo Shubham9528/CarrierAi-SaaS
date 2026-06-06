@@ -102,8 +102,8 @@ function PlanCTA({
     );
 
     const options = {
-      key: "rzp_test_RaL8PDo9YBejEW", // Enter the Key ID generated from the Dashboard
-      amount: order.id, // Amount is in currency subunits.
+      key: import.meta.env.VITE_RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
+      amount: order.amount, // Amount is in currency subunits.
       currency: "INR",
       name: "Career AI", //your business name
       description: "Find job easily",
@@ -138,7 +138,7 @@ function PlanCTA({
         }
       },
       theme: {
-        color: "#F#7254",
+        color: "#F37254",
       },
     };
 
